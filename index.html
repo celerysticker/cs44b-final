@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Sen|Work+Sans:200&display=swap" rel="stylesheet">
+	<link rel='stylesheet' type='text/css' href='style_explainer.css'>
+	<script src='https://d3js.org/d3.v5.min.js'></script>
+	<script src="https://kit.fontawesome.com/c7b7ebacc2.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="header"></div>
+		<div class="content">
+			<h1>My Data from Another Star</h1>
+			<h2>별에서 온 데이터 // 来自星星的数据</h2>
+			<h6>By <a href="#" title="this link goes nowhere, I'm just copying pudding.cool's style :)">Christina Lin</a></h6>
+			<h4>“Once you overcome the 1-inch-tall barrier of subtitles, you will be introduced to so many more amazing films.” -- Bong Joon Ho, director of Parasite.</h4>
+			
+			<p>In February 2020, the South Korean blockbuster <i>Parasite</i> made history as the first non-English-language film to win the Academy Award for Best Picture. This landmark achievement recognizes not only a singular spectacular film, but the success of an entire entertainment industry and growing Western appreciation of foreign languages and cultures. The rise of Asian cinema has been at least a decade in the making.</p>
+
+			<h4>dra·ma /ˈdrämə/ <i>(noun)</i> - a serial TV show, usually with a single cohesive story arc and all episodes led by single director and screenwriter. Typically aired on a daily or weekly basis over the course of a predetermined number of episodes. Frequently used in conjunction with their country of origin, such as k-drama, c-drama.</h4>
+
+			<p>While the silver screen is more critically evaluated, it shares many characteristics and in some ways even trails the trends set by TV shows. Asian TV shows, commonly referred to as dramas, have overcome barriers such as language and accessibility to become increasingly popular in the English-speaking community. Once difficult to find, they are now available with translations via online streaming services such as Netflix and YouTube shortly after they are aired on TV domestically.</p>
+
+			<p>MyDramaList (MDL) is an English-language website dedicated to Asian-language shows. As its user base has grown alongside drama viewership, it provides a glimpse into the tastes of an international community.</p>
+
+			<h3>Subtitles and streaming</h3>
+			<p>MDL ranks its dramas based on a combination of ratings, popularity, and recency. The Top 500 represent the shows that people are watching and enjoying now.</p>
+
+			<p>In the last ten years, there is an upward trend in quality and quantity of dramas. Note that the Top 500 favors recent dramas while older dramas need many ratings to rank higher, so while it appears that the quantity of viewers drops after 2018, this can in fact be attributed to MDL’s ranking algorithm and to recent dramas having less time to acquire ratings. The top dramas as ranked by MDL can be considered the current favorite dramas among their users.</p>
+
+			<p>In the last three years, there has been a shift towards online streaming. In addition to making existing shows widely available, streaming platforms have begun to produce original Asian dramas. For example, Netflix optioned its <a href='https://media.netflix.com/en/press-releases/love-alarm-set-to-become-netflix-first-korean-original-series'>first original Korean drama in 2017</a>. Since then, they have partnered with the South Korean cable TV network, tvN, to produce and distribute many Top 500 dramas in the last three years. While tvN has trended upward thanks to its collaboration with streaming networks, other traditional TV networks such as SBS have had fewer hits in the recent years.</p>
+		</div>
+
+		<div class="vis-content-small">
+			<div>
+				<h5>TV networks</h5>
+				<p>
+					South Korea Nationwide TV:
+					<span class='chart-text-button tv'>SBS</span>
+					<span class='chart-text-button tv'>KBS2</span>
+					<span class='chart-text-button tv'>MBC</span>
+					South Korea Cable TV:
+					<span class='chart-text-button tv selected'>tvN</span>
+					<span class='chart-text-button tv'>jTBC</span>
+				</p>
+				<p>
+					China TV:
+					<span class='chart-text-button tv'>Dragon TV</span>
+					<span class='chart-text-button tv'>ZJTV</span>
+					Japan TV:
+					<span class='chart-text-button tv'>Fuji TV</span>
+					Thai TV:
+					<span class='chart-text-button tv'>GMM One</span>
+					<span class='chart-text-button tv'>GMM 25</span>
+				</p>
+				<h5>Online streaming</h5>
+				<p>
+					International Streaming Platforms
+					<span class='chart-text-button online selected-secondary'>Netflix</span>
+					<span class='chart-text-button online'>Viki</span>
+				</p>
+				<p>
+					Chinese Streaming Platforms:
+					<span class='chart-text-button online'>iQiyi</span>
+					<span class='chart-text-button online'>Tencent Video</span>
+				</p>
+				<p>
+					Other Asia Streaing Platforms:
+					<span class='chart-text-button online'>LINE TV</span>
+					<span class='chart-text-button online'>CHOCO TV</span>
+				</p>
+
+
+			</div>
+		</div>
+
+		<div class="vis-content">
+			<svg id='time'></svg>
+		</div>
+
+		<div class="content">
+			<h3>Not a barrier, but a gateway</h3>
+
+			<p>China has been airing South Korean dramas with translations on TV <a href='https://www.jstor.org/stable/43107242?seq=1'>as early as the 1990s</a>, giving them a head start over the West in accessing and appreciating foreign language dramas. For global context, we examine the popularity and ratings of MDL’s top 100 dramas on Douban, a Chinese website. Douban has many more users than MDL.</p>
+		</div>
+
+		<div class="vis-content">
+			<div class="left">
+				<svg id='compare'></svg>
+			</div>
+			<div id='timecontrol' class='right'>
+				<h5>Country</h5>
+				<p>
+					<span class='chart-text-button country selected'>China</span><br>
+					<span class='chart-text-button country'>South Korea</span><br>
+					<span class='chart-text-button country'>Japan</span><br>
+					<span class='chart-text-button country'>Taiwan</span><br>
+					<span class='chart-text-button country'>Thailand</span><br>
+				</p>
+
+				<h5>Popularity</h5>
+				<div id='ratings' class='chart-text-button ratings-legend'>
+					Number of Ratings
+					<svg height="270" width="120">
+						<circle cx="60" cy="10" r="5"/>
+						<circle cx="60" cy="65" r="19"/>
+						<circle cx="60" cy="160" r="48"/>
+						<text x="60" y="30" text-anchor="middle">30000</text>
+						<text x="60" y="98" text-anchor="middle">120000</text>
+						<text x="60" y="226" text-anchor="middle">300000</text>
+
+					</svg>
+				</div>
+			</div>
+		</div>
+
+		<div class="content">
+			<p>As expected, Chinese dramas are much more widely viewed in China, and this may be related to their overall lower rating. With the exception of two dramas, all of the top Chinese dramas have lower ratings on Douban than on MDL. Meanwhile South Korean dramas are consistently well liked in both English and Chinese speaking communities.</p>
+
+			<p>Foreign language and culture within dramas may be <a href="https://journals.sagepub.com/doi/abs/10.1177/1748048511432601">a pro rather than a con</a> among Chinese viewers. With online streaming providing accessible content, we may find that Western audiences start to feel the same.</p>
+		</div>
+
+		<div class="content">
+			<h3>Content is king</h3>
+
+			<p>Accessibility, language, and culture aside, what kind of stories speak best to the English-language community? A breakdown of the most frequently occuring genres and tropes within the top 100 dramas on MDL reveals that the English-speaking viewership likes the Romance genre and plot elements such as Power Struggle and Revenge, and sometimes even a combination of all of the above. Take a look below; maybe you’ll find your next show to watch during this time of social distancing.</p>
+		</div>
+
+		<div class="vis-content">
+			<div class="left">
+				<svg id='explore'></svg>
+			</div>
+			<div class="right" id="posters"></div>
+		</div>
+
+		<div class="content footer">
+			<hr>
+			<p>Thank you to Professor Agrawala and Juliette Love for feedback and guidance!</p>
+
+			<h3>Data and methodology</h3>
+			<p>Data was gathered from <a href="https://mydramalist.com/">MyDramaList.com</a> (using Python and Beautiful Soup) and <a href="https://movie.douban.com/">Douban.com</a> (manually) in early March 2020. Data from the two sites were joined by title and then year, but there may be some errors in dramas with multiple seasons and spinoffs. Top dramas are taken in the order that they appear on MDL’s [Top Shows] page. The raw data is available for download in csv format: <a href="data/mdl_data_500_min.csv">MDL Top 500</a>, <a href="data/mdl_douban_data_100_min_img.csv">MDL Top 100 joined with Douban</a>.</p>
+
+			<p>This page uses <a href="https://atomiks.github.io/tippyjs/">Tippy</a> for tooltips because Javascript is hard :)</p>
+
+			<br><br>
+
+			<center><img width="300px" src="https://media.giphy.com/media/KDVsZlSaVeUSVu1SnY/giphy.gif"></center>
+		</div>
+	</div>
+</body>
+
+<!-- Tippy Development -->
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+
+<!-- Tippy Production -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+
+<script src='makevis_time.js'></script>
+<script src='makevis_compare.js'></script>
+<script src='makevis_explore.js'></script>
+
+</html>
